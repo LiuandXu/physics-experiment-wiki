@@ -20,14 +20,11 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin ruamel.yaml
-      - run: python generate_stats.py
-        working-directory: wiki
-      - run: python ci_inject_plugins.py
-        working-directory: wiki
-      - run: mkdocs build
-        working-directory: wiki
+      - run: python scripts/generate_stats.py docs
+      - run: python scripts/ci_inject_plugins.py
+      - run: python -m mkdocs build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: wiki/site
+          path: site
       - uses: actions/deploy-pages@v4
         id: deployment
