@@ -6,8 +6,11 @@ docs_dir: docs
 theme:
   name: material
   language: zh
+  logo: assets/img/logo.svg
+  favicon: assets/img/favicon.svg
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.top
     - navigation.footer
@@ -16,19 +19,20 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+    - content.code.annotate
     - toc.follow
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: "#0D47A1"
+      accent: "#1976D2"
       toggle:
         icon: material/brightness-7
         name: 切换暗色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: "#1565C0"
+      accent: "#64B5F6"
       toggle:
         icon: material/brightness-4
         name: 切换亮色模式
@@ -64,6 +68,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - admonition
   - tables
   - attr_list

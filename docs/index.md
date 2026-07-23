@@ -1,20 +1,100 @@
-# 大学物理实验
+<div class="hero">
+  <h1>大学物理实验</h1>
+  <p class="hero__sub">涵盖 10 个实验项目的课程 Wiki，兼顾考试复习与日常学习。每个实验页面采用标准实验报告结构，配有公式推导、Mermaid 原理图与思考题参考答案。</p>
+  <div class="hero__badges">
+    <span class="hero__badge">⚛ 10 个实验</span>
+    <span class="hero__badge">📐 标准报告结构</span>
+    <span class="hero__badge">∑ 公式推导</span>
+    <span class="hero__badge">💡 思考题参考答案</span>
+    <span class="hero__badge">🌗 明暗双主题</span>
+  </div>
+</div>
 
-> 本 Wiki 涵盖大学物理实验课程的 10 个实验项目，兼顾考试复习与日常学习。每个实验页面采用标准实验报告结构，配有公式推导、Mermaid 原理图和思考题参考答案。
+<div class="stat-grid">
+  <div class="stat-card"><div class="stat-card__num">13</div><div class="stat-card__label">页面数</div></div>
+  <div class="stat-card"><div class="stat-card__num">1614</div><div class="stat-card__label">公式数</div></div>
+  <div class="stat-card"><div class="stat-card__num">70</div><div class="stat-card__label">图片数</div></div>
+  <div class="stat-card"><div class="stat-card__num">12</div><div class="stat-card__label">代码块</div></div>
+</div>
 
-<div class="sp-wordcloud">
-<a class="sp-xxxl" href="00-绪论.html">绪论</a>
-<a class="sp-xxl" href="01-光电效应测普朗克常数.html">光电效应</a>
-<a class="sp-xxl" href="06-牛顿环.html">牛顿环</a>
-<a class="sp-xl" href="02-分光计.html">分光计</a>
-<a class="sp-xl" href="09-迈克尔逊干涉仪.html">干涉仪</a>
-<a class="sp-xl" href="10-霍尔效应.html">霍尔效应</a>
-<a class="sp-l" href="04-密立根油滴.html">密立根油滴</a>
-<a class="sp-l" href="08-示波器的使用.html">示波器</a>
-<a class="sp-l" href="07-直流电桥.html">直流电桥</a>
-<a class="sp-m" href="03-声速测量.html">声速</a>
-<a class="sp-m" href="05-杨氏模量.html">杨氏模量</a>
-<a class="sp-s" href="summary.html">总复习</a>
+<div class="section-title">课程基础</div>
+<div class="exp-grid">
+  <a class="exp-card" href="00-绪论/">
+    <span class="exp-card__icon">📚</span>
+    <span class="exp-card__title">绪论</span>
+    <span class="exp-card__desc">误差理论 · 不确定度 · 有效数字 · 数据处理</span>
+    <span class="exp-card__tag">课程基础</span>
+  </a>
+  <a class="exp-card" href="summary/">
+    <span class="exp-card__icon">🗂️</span>
+    <span class="exp-card__title">总复习</span>
+    <span class="exp-card__desc">全部实验核心公式与知识脉络汇总</span>
+    <span class="exp-card__tag">课程基础</span>
+  </a>
+</div>
+
+<div class="section-title">实验导览</div>
+<div class="exp-grid">
+  <a class="exp-card" href="01-光电效应测普朗克常数/">
+    <span class="exp-card__icon">⚡</span>
+    <span class="exp-card__title">光电效应测普朗克常数</span>
+    <span class="exp-card__desc">爱因斯坦光电方程 · 遏止电位差</span>
+    <span class="exp-card__tag">近代物理</span>
+  </a>
+  <a class="exp-card" href="02-分光计/">
+    <span class="exp-card__icon">🔭</span>
+    <span class="exp-card__title">分光计</span>
+    <span class="exp-card__desc">三重垂直调节 · 最小偏向角测折射率</span>
+    <span class="exp-card__tag">光学</span>
+  </a>
+  <a class="exp-card" href="03-声速测量/">
+    <span class="exp-card__icon">🌊</span>
+    <span class="exp-card__title">声速测量</span>
+    <span class="exp-card__desc">驻波法 · 相位法 · 压电换能器</span>
+    <span class="exp-card__tag">力学 / 声学</span>
+  </a>
+  <a class="exp-card" href="04-密立根油滴/">
+    <span class="exp-card__icon">💧</span>
+    <span class="exp-card__title">密立根油滴</span>
+    <span class="exp-card__desc">平衡法测电子电荷 · 斯托克斯定律</span>
+    <span class="exp-card__tag">近代物理</span>
+  </a>
+  <a class="exp-card" href="05-杨氏模量/">
+    <span class="exp-card__icon">📏</span>
+    <span class="exp-card__title">杨氏模量</span>
+    <span class="exp-card__desc">光杠杆放大原理 · 逐差法</span>
+    <span class="exp-card__tag">力学 / 声学</span>
+  </a>
+  <a class="exp-card" href="06-牛顿环/">
+    <span class="exp-card__icon">💍</span>
+    <span class="exp-card__title">牛顿环</span>
+    <span class="exp-card__desc">等厚干涉 · 曲率半径测量</span>
+    <span class="exp-card__tag">光学</span>
+  </a>
+  <a class="exp-card" href="07-直流电桥/">
+    <span class="exp-card__icon">🔌</span>
+    <span class="exp-card__title">直流电桥</span>
+    <span class="exp-card__desc">惠斯通电桥平衡 · 双臂电桥</span>
+    <span class="exp-card__tag">电磁学</span>
+  </a>
+  <a class="exp-card" href="08-示波器的使用/">
+    <span class="exp-card__icon">📈</span>
+    <span class="exp-card__title">示波器的使用</span>
+    <span class="exp-card__desc">扫描原理 · 李萨如图形</span>
+    <span class="exp-card__tag">电磁学</span>
+  </a>
+  <a class="exp-card" href="09-迈克尔逊干涉仪/">
+    <span class="exp-card__icon">🌈</span>
+    <span class="exp-card__title">迈克尔逊干涉仪</span>
+    <span class="exp-card__desc">等倾干涉 · 逐差法测波长</span>
+    <span class="exp-card__tag">光学</span>
+  </a>
+  <a class="exp-card" href="10-霍尔效应/">
+    <span class="exp-card__icon">🧲</span>
+    <span class="exp-card__title">霍尔效应</span>
+    <span class="exp-card__desc">霍尔系数 · 载流子浓度 · 副效应消除</span>
+    <span class="exp-card__tag">电磁学</span>
+  </a>
 </div>
 
 ## 知识脉络
@@ -53,13 +133,6 @@ flowchart LR
 | [迈克尔逊干涉仪](09-迈克尔逊干涉仪.md) | 等倾干涉、逐差法测波长 | \(\lambda = \frac{2\Delta d}{\Delta k}\) |
 | [霍尔效应](10-霍尔效应.md) | 霍尔系数、载流子浓度、副效应消除 | \(R_H = \frac{1}{ne}\) |
 | [总复习](summary.md) | 全部实验核心公式与知识脉络汇总 | - |
-
-## 站点统计
-
-- 页面数： 13
-- 公式数： 1614
-- 图片数： 70
-- 代码块： 12
 
 ## 参考教材
 

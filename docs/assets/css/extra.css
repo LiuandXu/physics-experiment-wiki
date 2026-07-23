@@ -1,34 +1,334 @@
-/* 隐藏侧边栏页面级 H3 标题（只在右侧 TOC 显示） */
-.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav > .md-nav__list
-  > .md-nav__item--active > .md-nav > .md-nav__list {
-  display: none;
+/* =========================================================
+   大学物理实验 Wiki · 深蓝学术风设计系统
+   配套 mkdocs.yml（primary #0D47A1 / accent #1976D2）
+   ========================================================= */
+
+:root {
+  /* 品牌色阶 */
+  --sp-blue-900: #0D47A1;
+  --sp-blue-800: #1565C0;
+  --sp-blue-700: #1976D2;
+  --sp-blue-600: #1E88E5;
+  --sp-blue-500: #42A5F5;
+  --sp-blue-100: #E3F2FD;
+  --sp-blue-050: #F4F8FE;
+  --sp-ink:      #0F1B2D;
+  --sp-amber:    #FF8F00;
+
+  /* 形状与阴影 */
+  --sp-radius:    14px;
+  --sp-radius-sm: 10px;
+  --sp-radius-xs: 8px;
+  --sp-shadow-sm: 0 1px 2px rgba(15,27,45,.06), 0 2px 8px rgba(15,27,45,.06);
+  --sp-shadow-md: 0 4px 14px rgba(13,71,161,.10), 0 2px 6px rgba(15,27,45,.06);
+  --sp-shadow-lg: 0 10px 30px rgba(13,71,161,.18);
+
+  /* 表面 */
+  --sp-surface:    #FFFFFF;
+  --sp-surface-2:  #F7F9FC;
+  --sp-border:     #E3E8F0;
+  --sp-border-soft:#EDF1F7;
 }
 
-/* 顶部标签缩字号（12 个 tab 防溢出） */
+/* 暗色主题下的自定义表面 */
+[data-md-color-scheme="slate"] {
+  --sp-blue-100: #1B2C44;
+  --sp-blue-050: #16243A;
+  --sp-ink:      #E6EDF6;
+  --sp-surface:    #161E2B;
+  --sp-surface-2:  #1B2535;
+  --sp-border:     #2A3647;
+  --sp-border-soft:#222E40;
+  --sp-shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sp-shadow-md: 0 4px 14px rgba(0,0,0,.4);
+  --sp-shadow-lg: 0 10px 30px rgba(0,0,0,.5);
+}
+
+/* ---------- 1. 页眉 ---------- */
+.md-header {
+  box-shadow: var(--sp-shadow-sm);
+}
+.md-header__title {
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+/* ---------- 2. 顶部标签页 ---------- */
+.md-tabs {
+  box-shadow: none;
+}
+.md-tabs__list { gap: .1rem; }
 .md-tabs__link {
-  font-size: 0.7rem;
+  font-size: .74rem;
+  font-weight: 600;
+  padding: .6rem .7rem;
+  letter-spacing: .01em;
 }
-.md-tabs__item {
-  padding-left: 0.15rem;
-  padding-right: 0.15rem;
+.md-tabs__item { padding: 0; }
+
+/* ---------- 3. Hero 首屏 ---------- */
+.hero {
+  position: relative;
+  margin: 0 0 2.2rem;
+  padding: 3rem 2.2rem 2.6rem;
+  border-radius: var(--sp-radius);
+  background:
+    radial-gradient(120% 140% at 12% 0%, rgba(66,165,245,.45) 0%, rgba(66,165,245,0) 55%),
+    radial-gradient(120% 140% at 100% 100%, rgba(13,71,161,.55) 0%, rgba(13,71,161,0) 50%),
+    linear-gradient(135deg, var(--sp-blue-800) 0%, var(--sp-blue-900) 100%);
+  color: #fff;
+  overflow: hidden;
+  box-shadow: var(--sp-shadow-lg);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(80% 120% at 80% 10%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(80% 120% at 80% 10%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero h1 {
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  margin: 0 0 .5rem;
+  letter-spacing: .01em;
+}
+.hero .hero__sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,.92);
+  max-width: 46rem;
+  margin: 0;
+}
+.hero .hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.3rem;
+}
+.hero .hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .82rem;
+  font-weight: 600;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.28);
+  color: #fff;
+  backdrop-filter: blur(2px);
 }
 
-/* 词云样式 */
-.sp-wordcloud {
+/* ---------- 4. 统计卡片 ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.6rem 0 2.2rem;
+}
+.stat-card {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-sm);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--sp-shadow-sm);
   text-align: center;
-  margin: 1.5rem 0;
-  line-height: 2.2;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
-.sp-wordcloud .sp-xxxl { font-size: 2.2rem; font-weight: 700; color: var(--md-primary-fg-color); }
-.sp-wordcloud .sp-xxl  { font-size: 1.8rem; font-weight: 600; color: var(--md-accent-fg-color); }
-.sp-wordcloud .sp-xl   { font-size: 1.5rem; font-weight: 600; }
-.sp-wordcloud .sp-l    { font-size: 1.25rem; }
-.sp-wordcloud .sp-m    { font-size: 1.05rem; }
-.sp-wordcloud .sp-s    { font-size: 0.9rem; opacity: 0.8; }
-.sp-wordcloud a { text-decoration: none; }
-.sp-wordcloud a:hover { text-decoration: underline; }
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--sp-shadow-md); }
+.stat-card .stat-card__num {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--sp-blue-700);
+  line-height: 1.1;
+}
+.stat-card .stat-card__label {
+  margin-top: .25rem;
+  font-size: .85rem;
+  color: var(--md-default-fg-color--light);
+}
 
-/* Mermaid 图表居中 */
+/* ---------- 5. 实验卡片网格 ---------- */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 2.2rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sp-ink);
+}
+.section-title::before {
+  content: "";
+  width: 6px;
+  height: 1.25rem;
+  border-radius: 3px;
+  background: linear-gradient(var(--sp-blue-600), var(--sp-blue-900));
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: .5rem 0 1.5rem;
+}
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1.15rem 1.2rem;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-sm);
+  box-shadow: var(--sp-shadow-sm);
+  text-decoration: none !important;
+  color: var(--sp-ink);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.exp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-shadow-md);
+  border-color: var(--sp-blue-500);
+}
+.exp-card__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.exp-card__title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--sp-blue-800);
+}
+.exp-card__desc {
+  font-size: .82rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.45;
+}
+.exp-card__tag {
+  align-self: flex-start;
+  margin-top: .35rem;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: var(--sp-blue-100);
+  color: var(--sp-blue-800);
+}
+[data-md-color-scheme="slate"] .exp-card__tag {
+  color: var(--sp-blue-500);
+}
+
+/* ---------- 6. 提示框（admonition）精致化 ---------- */
+.md-typeset .admonition {
+  border-radius: var(--sp-radius-sm);
+  border-left-width: 4px;
+  box-shadow: var(--sp-shadow-sm);
+  overflow: hidden;
+}
+.md-typeset .admonition > .admonition-title {
+  font-weight: 700;
+}
+.md-typeset .admonition > .admonition-title::before {
+  filter: saturate(1.1);
+}
+
+/* ---------- 7. 引用（重点 / 易错）作为强调卡片 ---------- */
+.md-typeset blockquote {
+  margin: 1rem 0;
+  padding: .85rem 1.1rem;
+  border-left: 4px solid var(--sp-blue-600);
+  border-radius: 0 var(--sp-radius-xs) var(--sp-radius-xs) 0;
+  background: var(--sp-blue-050);
+  color: var(--sp-ink);
+  box-shadow: var(--sp-shadow-sm);
+}
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  background: var(--sp-blue-050);
+}
+.md-typeset blockquote > *:first-child { margin-top: 0; }
+.md-typeset blockquote > *:last-child { margin-bottom: 0; }
+.md-typeset blockquote strong { color: var(--sp-blue-800); }
+[data-md-color-scheme="slate"] .md-typeset blockquote strong { color: var(--sp-blue-500); }
+
+/* ---------- 8. 表格 ---------- */
+.md-typeset table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--sp-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--sp-shadow-sm);
+  border: 1px solid var(--sp-border);
+}
+.md-typeset table:not([class]) { font-size: .9rem; }
+.md-typeset table th {
+  background: var(--sp-blue-800);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+.md-typeset table td { border-top: 1px solid var(--sp-border-soft); }
+.md-typeset table tr:nth-child(2n) td { background: var(--sp-surface-2); }
+.md-typeset table tr:hover td { background: var(--sp-blue-050); }
+.md-typeset table th, .md-typeset table td { padding: .55rem .8rem; }
+.md-typeset .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+
+/* ---------- 9. 代码块 ---------- */
+.md-typeset pre {
+  border-radius: var(--sp-radius-sm);
+  box-shadow: var(--sp-shadow-sm);
+  border: 1px solid var(--sp-border-soft);
+}
+.md-typeset code {
+  border-radius: 5px;
+}
+
+/* ---------- 10. Mermaid 容器 ---------- */
 .mermaid {
   text-align: center;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-sm);
+  box-shadow: var(--sp-shadow-sm);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* ---------- 11. 右侧 TOC ---------- */
+.md-sidebar--secondary .md-nav__link--active {
+  color: var(--sp-blue-700);
+  font-weight: 600;
+}
+.md-nav__link--active { font-weight: 600; }
+
+/* ---------- 12. 页脚 ---------- */
+.md-footer { background: var(--sp-blue-900); }
+.md-footer-meta { background: rgba(0,0,0,.18); }
+
+/* ---------- 13. 标题层级强调 ---------- */
+.md-typeset h1 { font-weight: 800; letter-spacing: .01em; }
+.md-typeset h2 {
+  font-weight: 700;
+  border-bottom: 2px solid var(--sp-border);
+  padding-bottom: .35rem;
+}
+.md-typeset a:hover { text-decoration: underline; }
+
+/* ---------- 14. 移动端 ---------- */
+@media screen and (max-width: 600px) {
+  .hero { padding: 2rem 1.2rem; }
+  .exp-grid { grid-template-columns: 1fr 1fr; }
 }
