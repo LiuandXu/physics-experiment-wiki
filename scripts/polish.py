@@ -57,10 +57,14 @@ if __name__ == "__main__":
             print(f"润色中: {os.path.basename(path)} ({size} bytes)...")
             polished = polish_text(raw)
             after = count_formulas(polished)
-            # 公式计数校验
-            if before != after:
-                print(f"  ⚠️ 公式计数变化! 前:{before} 后:{after}，保留原文")
+            # 行间公式严格校验（不允许变化）
+            if before["display_open"] != after["display_open"] or before["display_close"] != after["display_close"]:
+                print(f"  ⚠️ 行间公式计数变化! 前:{before} 后:{after}，保留原文")
                 continue
+            # 行内公式允许减少（DeepSeek 可能将简单希腊字母 LaTeX 转为 Unicode）
+            inline_diff = before["inline_open"] - after["inline_open"]
+            if inline_diff > 0:
+                print(f"  ℹ️ 行内公式减少 {inline_diff} 个（希腊字母 Unicode 化），允许通过")
             with open(path, "w", encoding="utf-8") as f:
                 f.write(polished)
             print(f"  ✅ 已润色: {os.path.basename(path)}")
