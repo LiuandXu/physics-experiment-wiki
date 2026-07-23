@@ -1,52 +1,70 @@
 /* =========================================================
-   大学物理实验 Wiki · 深蓝学术风设计系统
-   配套 mkdocs.yml（primary #0D47A1 / accent #1976D2）
+   大学物理实验 Wiki · 青绿科技风（Teal / Cyan Tech）设计系统
+   配套 mkdocs.yml（primary #00796B / accent #00ACC1，暗色 #00897B / #4DD0E1）
+   设计语言：玻璃拟态 · 网格光效 · 等宽字点缀 · 青绿辉光
    ========================================================= */
 
 :root {
-  /* 品牌色阶 */
-  --sp-blue-900: #0D47A1;
-  --sp-blue-800: #1565C0;
-  --sp-blue-700: #1976D2;
-  --sp-blue-600: #1E88E5;
-  --sp-blue-500: #42A5F5;
-  --sp-blue-100: #E3F2FD;
-  --sp-blue-050: #F4F8FE;
-  --sp-ink:      #0F1B2D;
-  --sp-amber:    #FF8F00;
+  /* 品牌色阶 —— Teal */
+  --sp-teal-900: #003D33;
+  --sp-teal-800: #004D40;
+  --sp-teal-700: #00695C;
+  --sp-teal-600: #00897B;
+  --sp-teal-500: #26A69A;
+  --sp-teal-300: #4DB6AC;
+  --sp-teal-100: #E0F2F1;
+  --sp-teal-050: #F1F8F7;
+
+  /* 强调色 —— Cyan */
+  --sp-cyan-700: #0097A7;
+  --sp-cyan-600: #00838F;
+  --sp-cyan-500: #00BCD4;
+  --sp-cyan-400: #26C6DA;
+  --sp-cyan-300: #4DD0E1;
+  --sp-cyan-100: #E0F7FA;
+
+  --sp-ink:      #07302A;   /* 近黑青墨，用于浅色主题正文/标题 */
+  --sp-amber:    #FFB300;   /* 保留作中性点缀 */
 
   /* 形状与阴影 */
   --sp-radius:    14px;
-  --sp-radius-sm: 10px;
+  --sp-radius-sm: 11px;
   --sp-radius-xs: 8px;
-  --sp-shadow-sm: 0 1px 2px rgba(15,27,45,.06), 0 2px 8px rgba(15,27,45,.06);
-  --sp-shadow-md: 0 4px 14px rgba(13,71,161,.10), 0 2px 6px rgba(15,27,45,.06);
-  --sp-shadow-lg: 0 10px 30px rgba(13,71,161,.18);
+  --sp-shadow-sm: 0 1px 2px rgba(0,53,43,.06), 0 2px 10px rgba(0,53,43,.06);
+  --sp-shadow-md: 0 6px 20px rgba(0,105,92,.16), 0 2px 6px rgba(0,53,43,.08);
+  --sp-shadow-lg: 0 14px 40px rgba(0,105,92,.22);
+  --sp-glow:      0 0 0 1px rgba(0,188,212,.30), 0 8px 26px rgba(0,188,212,.22);
 
   /* 表面 */
   --sp-surface:    #FFFFFF;
-  --sp-surface-2:  #F7F9FC;
-  --sp-border:     #E3E8F0;
-  --sp-border-soft:#EDF1F7;
+  --sp-surface-2:  #F4F9F8;
+  --sp-border:     #D8E8E4;
+  --sp-border-soft:#E8F1EF;
 }
 
-/* 暗色主题下的自定义表面 */
+/* 暗色主题下的自定义表面（深青底） */
 [data-md-color-scheme="slate"] {
-  --sp-blue-100: #1B2C44;
-  --sp-blue-050: #16243A;
-  --sp-ink:      #E6EDF6;
-  --sp-surface:    #161E2B;
-  --sp-surface-2:  #1B2535;
-  --sp-border:     #2A3647;
-  --sp-border-soft:#222E40;
-  --sp-shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
-  --sp-shadow-md: 0 4px 14px rgba(0,0,0,.4);
-  --sp-shadow-lg: 0 10px 30px rgba(0,0,0,.5);
+  --sp-teal-100: #0E3A33;
+  --sp-teal-050: #0A2E29;
+  --sp-cyan-100: #0C2E33;
+  --sp-ink:      #D6F2EE;
+  --sp-surface:    #0D1A18;
+  --sp-surface-2:  #112421;
+  --sp-border:     #1E3A36;
+  --sp-border-soft:#18302D;
+  --sp-shadow-sm: 0 1px 2px rgba(0,0,0,.35), 0 2px 10px rgba(0,0,0,.3);
+  --sp-shadow-md: 0 6px 20px rgba(0,0,0,.45);
+  --sp-shadow-lg: 0 14px 40px rgba(0,0,0,.55);
+  --sp-glow:      0 0 0 1px rgba(38,198,218,.35), 0 8px 26px rgba(38,198,218,.22);
 }
 
-/* ---------- 1. 页眉 ---------- */
+/* ---------- 1. 页眉：深青渐变 + 底部辉光 ---------- */
 .md-header {
-  box-shadow: var(--sp-shadow-sm);
+  background: linear-gradient(100deg, var(--sp-teal-800) 0%, var(--sp-teal-700) 60%, var(--sp-cyan-700) 140%);
+  box-shadow: 0 2px 14px rgba(0,105,92,.35);
+}
+[data-md-color-scheme="slate"] .md-header {
+  background: linear-gradient(100deg, #062019 0%, #07382F 70%, #064A4A 140%);
 }
 .md-header__title {
   font-weight: 700;
@@ -56,10 +74,12 @@
 .md-header__button.md-logo svg {
   height: 1.6rem;
   width: 1.6rem;
+  filter: drop-shadow(0 0 6px rgba(38,198,218,.55));
 }
 
 /* ---------- 2. 顶部标签页 ---------- */
 .md-tabs {
+  background: transparent;
   box-shadow: none;
 }
 .md-tabs__list { gap: .1rem; }
@@ -71,30 +91,41 @@
 }
 .md-tabs__item { padding: 0; }
 
-/* ---------- 3. Hero 首屏 ---------- */
+/* ---------- 3. Hero 首屏（深色 teal→cyan 渐变 + 网格 + 辉光） ---------- */
 .hero {
   position: relative;
   margin: 0 0 2.2rem;
-  padding: 3rem 2.2rem 2.6rem;
+  padding: 3.2rem 2.2rem 2.8rem;
   border-radius: var(--sp-radius);
   background:
-    radial-gradient(120% 140% at 12% 0%, rgba(66,165,245,.45) 0%, rgba(66,165,245,0) 55%),
-    radial-gradient(120% 140% at 100% 100%, rgba(13,71,161,.55) 0%, rgba(13,71,161,0) 50%),
-    linear-gradient(135deg, var(--sp-blue-800) 0%, var(--sp-blue-900) 100%);
-  color: #fff;
+    radial-gradient(120% 130% at 8% -10%, rgba(38,198,218,.40) 0%, rgba(38,198,218,0) 50%),
+    radial-gradient(120% 140% at 100% 120%, rgba(0,105,92,.65) 0%, rgba(0,105,92,0) 55%),
+    linear-gradient(135deg, var(--sp-teal-800) 0%, var(--sp-teal-900) 55%, #042A33 100%);
+  color: #ECFEFF;
   overflow: hidden;
   box-shadow: var(--sp-shadow-lg);
+  border: 1px solid rgba(38,198,218,.18);
 }
-.hero::after {
+.hero::before { /* 右上角 cyan 辉光 */
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 50%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(38,198,218,.35) 0%, rgba(38,198,218,0) 70%);
+  pointer-events: none;
+}
+.hero::after { /* 科技网格 */
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 34px 34px;
-  -webkit-mask-image: radial-gradient(80% 120% at 80% 10%, #000 0%, transparent 70%);
-          mask-image: radial-gradient(80% 120% at 80% 10%, #000 0%, transparent 70%);
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(85% 120% at 78% 12%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(85% 120% at 78% 12%, #000 0%, transparent 72%);
   pointer-events: none;
 }
 .hero > * { position: relative; z-index: 1; }
@@ -103,12 +134,13 @@
   font-weight: 800;
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   margin: 0 0 .5rem;
-  letter-spacing: .01em;
+  letter-spacing: .02em;
+  text-shadow: 0 0 22px rgba(38,198,218,.35);
 }
 .hero .hero__sub {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255,255,255,.92);
+  color: rgba(236,254,255,.88);
   max-width: 46rem;
   margin: 0;
 }
@@ -122,17 +154,25 @@
   display: inline-flex;
   align-items: center;
   gap: .35rem;
-  font-size: .82rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .76rem;
   font-weight: 600;
+  letter-spacing: .02em;
   padding: .3rem .75rem;
   border-radius: 999px;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.28);
-  color: #fff;
-  backdrop-filter: blur(2px);
+  background: rgba(0,188,212,.10);
+  border: 1px solid rgba(38,198,218,.40);
+  color: #B2F5EA;
+  backdrop-filter: blur(3px);
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.hero .hero__badge:hover {
+  border-color: rgba(38,198,218,.8);
+  background: rgba(0,188,212,.18);
+  box-shadow: 0 0 14px rgba(38,198,218,.35);
 }
 
-/* ---------- 4. 统计卡片 ---------- */
+/* ---------- 4. 统计卡片（玻璃态 + cyan 等宽数字 + 辉光） ---------- */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -140,28 +180,45 @@
   margin: 1.6rem 0 2.2rem;
 }
 .stat-card {
+  position: relative;
   background: var(--sp-surface);
   border: 1px solid var(--sp-border);
   border-radius: var(--sp-radius-sm);
-  padding: 1.1rem 1.2rem;
+  padding: 1.15rem 1.2rem;
   box-shadow: var(--sp-shadow-sm);
   text-align: center;
-  transition: transform .18s ease, box-shadow .18s ease;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.stat-card:hover { transform: translateY(-3px); box-shadow: var(--sp-shadow-md); }
+.stat-card::after { /* 顶部青绿发丝线 */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sp-teal-500), var(--sp-cyan-400));
+  opacity: .85;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-glow);
+  border-color: rgba(0,188,212,.55);
+}
 .stat-card .stat-card__num {
-  font-size: 1.9rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.95rem;
   font-weight: 800;
-  color: var(--sp-blue-700);
+  color: var(--sp-teal-600);
   line-height: 1.1;
+  text-shadow: 0 0 16px rgba(0,188,212,.18);
 }
+[data-md-color-scheme="slate"] .stat-card .stat-card__num { color: var(--sp-cyan-300); }
 .stat-card .stat-card__label {
-  margin-top: .25rem;
+  margin-top: .3rem;
   font-size: .85rem;
   color: var(--md-default-fg-color--light);
 }
 
-/* ---------- 5. 实验卡片网格 ---------- */
+/* ---------- 5. 实验卡片网格（玻璃 + 青绿辉光） ---------- */
 .section-title {
   display: flex;
   align-items: center;
@@ -176,7 +233,8 @@
   width: 6px;
   height: 1.25rem;
   border-radius: 3px;
-  background: linear-gradient(var(--sp-blue-600), var(--sp-blue-900));
+  background: linear-gradient(var(--sp-cyan-400), var(--sp-teal-700));
+  box-shadow: 0 0 10px rgba(0,188,212,.45);
 }
 .exp-grid {
   display: grid;
@@ -199,18 +257,20 @@
 }
 .exp-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--sp-shadow-md);
-  border-color: var(--sp-blue-500);
+  box-shadow: var(--sp-glow);
+  border-color: var(--sp-cyan-400);
 }
 .exp-card__icon {
   font-size: 1.5rem;
   line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(0,188,212,.30));
 }
 .exp-card__title {
   font-weight: 700;
   font-size: 1rem;
-  color: var(--sp-blue-800);
+  color: var(--sp-teal-700);
 }
+[data-md-color-scheme="slate"] .exp-card__title { color: var(--sp-cyan-300); }
 .exp-card__desc {
   font-size: .82rem;
   color: var(--md-default-fg-color--light);
@@ -223,14 +283,16 @@
   font-weight: 600;
   padding: .15rem .6rem;
   border-radius: 999px;
-  background: var(--sp-blue-100);
-  color: var(--sp-blue-800);
+  background: var(--sp-teal-100);
+  color: var(--sp-teal-700);
+  border: 1px solid rgba(0,150,136,.20);
 }
 [data-md-color-scheme="slate"] .exp-card__tag {
-  color: var(--sp-blue-500);
+  color: var(--sp-cyan-300);
+  border-color: rgba(38,198,218,.30);
 }
 
-/* ---------- 6. 提示框（admonition）精致化 ---------- */
+/* ---------- 6. 提示框（admonition）teal 精致化 ---------- */
 .md-typeset .admonition {
   border-radius: var(--sp-radius-sm);
   border-left-width: 4px;
@@ -241,28 +303,26 @@
   font-weight: 700;
 }
 .md-typeset .admonition > .admonition-title::before {
-  filter: saturate(1.1);
+  filter: saturate(1.15);
 }
 
 /* ---------- 7. 引用（重点 / 易错）作为强调卡片 ---------- */
 .md-typeset blockquote {
   margin: 1rem 0;
   padding: .85rem 1.1rem;
-  border-left: 4px solid var(--sp-blue-600);
+  border-left: 4px solid var(--sp-teal-500);
   border-radius: 0 var(--sp-radius-xs) var(--sp-radius-xs) 0;
-  background: var(--sp-blue-050);
+  background: var(--sp-teal-050);
   color: var(--sp-ink);
   box-shadow: var(--sp-shadow-sm);
 }
-[data-md-color-scheme="slate"] .md-typeset blockquote {
-  background: var(--sp-blue-050);
-}
+[data-md-color-scheme="slate"] .md-typeset blockquote { background: var(--sp-teal-050); }
 .md-typeset blockquote > *:first-child { margin-top: 0; }
 .md-typeset blockquote > *:last-child { margin-bottom: 0; }
-.md-typeset blockquote strong { color: var(--sp-blue-800); }
-[data-md-color-scheme="slate"] .md-typeset blockquote strong { color: var(--sp-blue-500); }
+.md-typeset blockquote strong { color: var(--sp-teal-700); }
+[data-md-color-scheme="slate"] .md-typeset blockquote strong { color: var(--sp-cyan-300); }
 
-/* ---------- 8. 表格 ---------- */
+/* ---------- 8. 表格（teal 表头 + cyan 行悬停） ---------- */
 .md-typeset table {
   display: table;
   width: 100%;
@@ -275,28 +335,27 @@
 }
 .md-typeset table:not([class]) { font-size: .9rem; }
 .md-typeset table th {
-  background: var(--sp-blue-800);
-  color: #fff;
+  background: linear-gradient(180deg, var(--sp-teal-700), var(--sp-teal-800));
+  color: #ECFEFF;
   font-weight: 700;
   border: none;
 }
 .md-typeset table td { border-top: 1px solid var(--sp-border-soft); }
 .md-typeset table tr:nth-child(2n) td { background: var(--sp-surface-2); }
-.md-typeset table tr:hover td { background: var(--sp-blue-050); }
+.md-typeset table tr:hover td { background: var(--sp-teal-050); }
+[data-md-color-scheme="slate"] .md-typeset table tr:hover td { background: var(--sp-teal-050); }
 .md-typeset table th, .md-typeset table td { padding: .55rem .8rem; }
 .md-typeset .table-wrapper { overflow-x: auto; margin: 1rem 0; }
 
-/* ---------- 9. 代码块 ---------- */
+/* ---------- 9. 代码块（深色玻璃 + cyan 边） ---------- */
 .md-typeset pre {
   border-radius: var(--sp-radius-sm);
   box-shadow: var(--sp-shadow-sm);
   border: 1px solid var(--sp-border-soft);
 }
-.md-typeset code {
-  border-radius: 5px;
-}
+.md-typeset code { border-radius: 5px; }
 
-/* ---------- 10. Mermaid 容器 ---------- */
+/* ---------- 10. Mermaid 容器（teal 边框） ---------- */
 .mermaid {
   text-align: center;
   background: var(--sp-surface);
@@ -307,16 +366,17 @@
   margin: 1rem 0;
 }
 
-/* ---------- 11. 右侧 TOC ---------- */
+/* ---------- 11. 右侧 TOC 激活态 ---------- */
 .md-sidebar--secondary .md-nav__link--active {
-  color: var(--sp-blue-700);
+  color: var(--sp-teal-600);
   font-weight: 600;
 }
+[data-md-color-scheme="slate"] .md-sidebar--secondary .md-nav__link--active { color: var(--sp-cyan-300); }
 .md-nav__link--active { font-weight: 600; }
 
-/* ---------- 12. 页脚 ---------- */
-.md-footer { background: var(--sp-blue-900); }
-.md-footer-meta { background: rgba(0,0,0,.18); }
+/* ---------- 12. 页脚（深青） ---------- */
+.md-footer { background: var(--sp-teal-900); }
+.md-footer-meta { background: rgba(0,0,0,.20); }
 
 /* ---------- 13. 标题层级强调 ---------- */
 .md-typeset h1 { font-weight: 800; letter-spacing: .01em; }

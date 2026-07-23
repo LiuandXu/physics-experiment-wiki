@@ -24,15 +24,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: "#0D47A1"
-      accent: "#1976D2"
+      primary: "#00796B"
+      accent: "#00ACC1"
       toggle:
         icon: material/brightness-7
         name: 切换暗色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: "#1565C0"
-      accent: "#64B5F6"
+      primary: "#00897B"
+      accent: "#4DD0E1"
       toggle:
         icon: material/brightness-4
         name: 切换亮色模式
