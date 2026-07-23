@@ -1,0 +1,85 @@
+site_name: 大学物理实验
+site_description: 大学物理实验课程 Wiki - 兼顾复习与学习
+site_url: ""
+docs_dir: docs
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换亮色模式
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/js/mermaid.js?v=2
+
+extra_css:
+  - assets/css/extra.css
+
+plugins:
+  - search
+  - minify:
+      minify_html: false
+      minify_js: true
+      minify_css: true
+  - git-revision-date-localized:
+      type: date
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - 首页: index.md
+  - 绪论: 00-绪论.md
+  - 光电效应测普朗克常数: 01-光电效应测普朗克常数.md
+  - 分光计: 02-分光计.md
+  - 声速测量: 03-声速测量.md
+  - 密立根油滴: 04-密立根油滴.md
+  - 杨氏模量: 05-杨氏模量.md
+  - 牛顿环: 06-牛顿环.md
+  - 直流电桥: 07-直流电桥.md
+  - 示波器的使用: 08-示波器的使用.md
+  - 迈克尔逊干涉仪: 09-迈克尔逊干涉仪.md
+  - 霍尔效应: 10-霍尔效应.md
+  - 总复习: summary.md

@@ -1,0 +1,34 @@
+/* 隐藏侧边栏页面级 H3 标题（只在右侧 TOC 显示） */
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav > .md-nav__list
+  > .md-nav__item--active > .md-nav > .md-nav__list {
+  display: none;
+}
+
+/* 顶部标签缩字号（12 个 tab 防溢出） */
+.md-tabs__link {
+  font-size: 0.7rem;
+}
+.md-tabs__item {
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+/* 词云样式 */
+.sp-wordcloud {
+  text-align: center;
+  margin: 1.5rem 0;
+  line-height: 2.2;
+}
+.sp-wordcloud .sp-xxxl { font-size: 2.2rem; font-weight: 700; color: var(--md-primary-fg-color); }
+.sp-wordcloud .sp-xxl  { font-size: 1.8rem; font-weight: 600; color: var(--md-accent-fg-color); }
+.sp-wordcloud .sp-xl   { font-size: 1.5rem; font-weight: 600; }
+.sp-wordcloud .sp-l    { font-size: 1.25rem; }
+.sp-wordcloud .sp-m    { font-size: 1.05rem; }
+.sp-wordcloud .sp-s    { font-size: 0.9rem; opacity: 0.8; }
+.sp-wordcloud a { text-decoration: none; }
+.sp-wordcloud a:hover { text-decoration: underline; }
+
+/* Mermaid 图表居中 */
+.mermaid {
+  text-align: center;
+}
